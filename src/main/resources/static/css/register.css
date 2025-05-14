@@ -1,0 +1,41 @@
+/* Можно скопировать login.css и изменить название класса */
+.register-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px;
+  background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+}
+
+.register-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.register-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.register-container button:hover {
+  background-color: #059669;
+}
+
+.register-container .link {
+  margin-top: 10px;
+  font-size: 14px;
+}
