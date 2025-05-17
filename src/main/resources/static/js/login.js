@@ -2,7 +2,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const form = e.target;
-  const username = form.username.value;
+  const email = form.email.value;
   const password = form.password.value;
 
   const response = await fetch('/api/auth/login', {
@@ -10,15 +10,15 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ username, password })
+    body: JSON.stringify({ email, password })
   });
 
   if (response.ok) {
-    // Успешный вход
     const data = await response.json();
     localStorage.setItem('token', data.token);
     window.location.href = '/home';
   } else {
-    alert('Ошибка входа. Проверьте данные.');
+    const errorText = await response.text(); // получаем текст ошибки
+    document.getElementById('loginError').innerText = errorText;
   }
 });

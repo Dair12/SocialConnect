@@ -18,6 +18,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     alert('Регистрация успешна! Переход на вход.');
     window.location.href = '/login';
   } else {
-    alert('Ошибка регистрации. Возможно, пользователь уже существует.');
+    const errorText = await response.text();
+    document.getElementById('registerError').innerText = errorText;
   }
 });

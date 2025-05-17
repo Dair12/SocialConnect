@@ -3,6 +3,7 @@ package com.example.SocialConnect.service;
 import com.example.SocialConnect.dto.AuthResponse;
 import com.example.SocialConnect.dto.LoginRequest;
 import com.example.SocialConnect.dto.RegisterRequest;
+import com.example.SocialConnect.exception.AuthException;
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.UserRepository;
 import com.example.SocialConnect.security.JwtService;
@@ -41,7 +42,7 @@ public class AuthService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         if (!passwordEncoder.matches(request.password, user.getPassword())) {
-            throw new RuntimeException("Invalid credentials");
+            throw new AuthException("Неверный пароль");
         }
 
         String token = jwtService.generateToken(user.getEmail());

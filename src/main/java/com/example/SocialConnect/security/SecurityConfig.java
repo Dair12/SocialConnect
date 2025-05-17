@@ -31,6 +31,7 @@ public class SecurityConfig {
                                 "/js/**",
                                 "/images/**",
                                 "/static/**"
+//                                "/templates/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
