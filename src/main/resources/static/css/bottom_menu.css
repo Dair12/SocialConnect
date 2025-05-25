@@ -1,0 +1,48 @@
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.07);
+    z-index: 10;
+    border-top: 1px solid #E1E1E1; /* серая линия */
+}
+
+.menu-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.menu-item.active {
+    background: #f2f2ff;
+}
+
+.menu-item img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Профиль: синий круг с буквой */
+.profile-circle {
+    width: 44px;
+    height: 44px;
+    background: #1663FF;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7em;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}

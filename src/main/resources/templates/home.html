@@ -4,12 +4,19 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout}">
 <head>
-    <title layout:title="Главная"></title>
+    <title>Главная</title>
+    <th:block layout:fragment="extra_css">
+        <link rel="stylesheet" th:href="@{/css/bottom_menu.css}">
+    </th:block>
 </head>
 <body>
 <main class="content" layout:fragment="content">
-    <h1>Добро пожаловать в SocialConnect!</h1>
-    <p>Это ваша лента или приветствие.</p>
+    <div class="feed-placeholder">Тут будет лента постов</div>
+    <div th:replace="~{fragments/bottom_menu :: *}"></div>
+
 </main>
+<th:block layout:fragment="extra_js">
+    <script th:src="@{/js/bottom_menu.js}"></script>
+</th:block>
 </body>
 </html>

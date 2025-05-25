@@ -1,0 +1,15 @@
+<div class="bottom-menu" th:fragment="*">
+    <div class="menu-item active" data-index="0">
+        <img src="/icons/home.png" alt="Home">
+    </div>
+    <!-- <div class="menu-item" data-index="1">
+        <img src="/icons/search.svg" alt="Search">
+    </div> -->
+    <div class="menu-item" data-index="2">
+        <img src="/icons/add.png" alt="Add">
+    </div>
+    <!-- Профиль: круг с буквой -->
+    <div class="menu-item profile" data-index="3">
+        <div class="profile-circle" th:text="${#strings.substring(user.username, 0, 1).toUpperCase()}"></div>
+    </div>
+</div>
