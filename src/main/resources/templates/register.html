@@ -1,25 +1,26 @@
-{% extends "index.html" %}
-
-{% block title %}Регистрация в SocialConnect{% endblock %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="/static/css/register.css">
-{% endblock %}
-
-{% block content %}
-<div class="register-container">
-    <h2>Регистрация</h2>
-    <form id="registerForm" method="post" action="/api/auth/register">
-        <input type="text" name="username" placeholder="Имя пользователя" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Пароль" required>
-        <button type="submit">Создать аккаунт</button>
-        <p id="registerError" style="color: red; margin-top: 10px;"></p>
-        <p class="link">Уже есть аккаунт? <a href="/login">Войти</a></p>
-    </form>
-</div>
-{% endblock %}
-
-{% block extra_js %}
-<script src="/static/js/register.js"></script>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title layout:title="Регистрация в SocialConnect"></title>
+    <link rel="stylesheet" th:href="@{/css/register.css}" layout:fragment="extra_css" />
+</head>
+<body>
+<main class="content" layout:fragment="content">
+    <div class="register-container">
+        <h2>Регистрация</h2>
+        <form id="registerForm" method="post" th:action="@{/api/auth/register}">
+            <input type="text" name="username" placeholder="Имя пользователя" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <button type="submit">Создать аккаунт</button>
+            <p id="registerError" style="color: red; margin-top: 10px;"></p>
+            <p class="link">Уже есть аккаунт? <a th:href="@{/login}">Войти</a></p>
+        </form>
+    </div>
+</main>
+<script th:src="@{/js/register.js}" layout:fragment="extra_js"></script>
+</body>
+</html>

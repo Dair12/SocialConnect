@@ -1,5 +1,6 @@
 package com.example.SocialConnect.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,36 +8,48 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+        @Autowired
+        private JwtAuthenticationEntryPoint unauthorizedHandler;
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        @Bean
+        public PasswordEncoder passwordEncoder() {
+                return new BCryptPasswordEncoder();
+        }
+
+        @Autowired
+        private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+        @Bean
+        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/api/auth/**",
-                                "/login",
-                                "/register",
-                                "/",
-                                "/css/**",
-                                "/js/**",
-                                "/images/**",
-                                "/static/**"
-//                                "/templates/**"
-                        ).permitAll()
-                        .anyRequest().authenticated()
+                .exceptionHandling(exception -> exception
+                .authenticationEntryPoint(unauthorizedHandler)
                 )
-                .formLogin(form -> form.disable()); // <-- ВАЖНО! отключает дефолтную форму Spring Security
+                .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                        "/login",
+                        "/register",
+                        "/api/auth/**",        // если у тебя REST для регистрации/логина
+                        "/css/login.css",      // только стили для login
+                        "/css/register.css",   // только стили для register
+                        "/css/main.css",       // если нужен общий стиль
+                        "/js/login.js",
+                        "/js/register.js",
+                        "/js/main.js"
+                ).permitAll()
+                .anyRequest().authenticated() // всё остальное требует авторизации!
+                )
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .formLogin(form -> form.disable());
 
         return http.build();
-    }
+        }
 }

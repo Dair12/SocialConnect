@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$CONTENT_TITLE — SocialConnect">SocialConnect</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!-- Для дополнительных стилей на страницах -->
+    <th:block layout:fragment="extra_css"></th:block>
+</head>
+<body>
+    <main class="content" layout:fragment="content">
+        <!-- Основной контент -->
+    </main>
+    <script th:src="@{/js/main.js}"></script>
+    <!-- Для дополнительных скриптов на страницах -->
+    <th:block layout:fragment="extra_js"></th:block>
+</body>
+</html>

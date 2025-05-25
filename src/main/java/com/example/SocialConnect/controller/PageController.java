@@ -18,7 +18,7 @@ public class PageController {
 
     @GetMapping("/")
     public String homePage() {
-        return "index"; // templates/index.html, можно позже заменить на /home
+        return "home"; // templates/index.html, можно позже заменить на /home
     }
 }
 
