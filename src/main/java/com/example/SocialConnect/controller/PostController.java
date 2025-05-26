@@ -3,6 +3,8 @@ package com.example.SocialConnect.controller;
 import com.example.SocialConnect.dto.CreatePostRequest;
 import com.example.SocialConnect.dto.PostDto;
 import com.example.SocialConnect.model.Post;
+import com.example.SocialConnect.model.User;
+import com.example.SocialConnect.repository.UserRepository;
 import com.example.SocialConnect.service.PostService;
 
 import java.util.List;
@@ -18,6 +20,8 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+    @Autowired
+    private UserRepository userRepository;
 
     @PostMapping("/create")
     public ResponseEntity<Post> createPost(@RequestBody CreatePostRequest request, Authentication authentication) {
@@ -29,8 +33,12 @@ public class PostController {
     @GetMapping("/feed")
     public List<PostDto> getFeed(
         @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "25") int size
+        @RequestParam(defaultValue = "25") int size,
+        Authentication authentication // <-- добавь это!
     ) {
-        return postService.getRandomPosts(page, size);
+        String email = authentication.getName();
+        User currentUser = userRepository.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        return postService.getRandomPosts(page, size, currentUser);
     }
 }
