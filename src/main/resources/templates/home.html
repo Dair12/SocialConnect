@@ -7,16 +7,19 @@
     <title>Главная</title>
     <th:block layout:fragment="extra_css">
         <link rel="stylesheet" th:href="@{/css/bottom_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/home.css}">
     </th:block>
 </head>
 <body>
 <main class="content" layout:fragment="content">
-    <div class="feed-placeholder">Тут будет лента постов</div>
+    <div id="post-feed" class="feed-placeholder"></div>
+    <div id="loading" style="text-align:center; margin:20px; display:none;">Загрузка...</div>
     <div th:replace="~{fragments/bottom_menu :: *}"></div>
 
 </main>
 <th:block layout:fragment="extra_js">
     <script th:src="@{/js/bottom_menu.js}"></script>
+    <script th:src="@{/js/home.js}"></script>
 </th:block>
 </body>
 </html>

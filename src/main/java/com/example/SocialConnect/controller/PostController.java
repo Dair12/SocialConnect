@@ -1,8 +1,12 @@
 package com.example.SocialConnect.controller;
 
 import com.example.SocialConnect.dto.CreatePostRequest;
+import com.example.SocialConnect.dto.PostDto;
 import com.example.SocialConnect.model.Post;
 import com.example.SocialConnect.service.PostService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -22,5 +26,11 @@ public class PostController {
         return ResponseEntity.ok(post);
     }
 
-    // Можно добавить другие методы — получение всех постов, удаление и т.д.
+    @GetMapping("/feed")
+    public List<PostDto> getFeed(
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "25") int size
+    ) {
+        return postService.getRandomPosts(page, size);
+    }
 }
