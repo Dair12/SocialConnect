@@ -1,5 +1,6 @@
 package com.example.SocialConnect.controller;
 
+import com.example.SocialConnect.dto.PostDto;
 import com.example.SocialConnect.model.Like;
 import com.example.SocialConnect.service.LikeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,10 @@ public class LikeController {
             .map(like -> like.getPost().getId())
             .toList();
         return ResponseEntity.ok(postIds);
+    }
+
+    @GetMapping("/activity/details")
+    public ResponseEntity<List<PostDto>> likedPostsDetails(Authentication auth) {
+        return ResponseEntity.ok(likeService.getLikedPostDtos(auth.getName()));
     }
 }

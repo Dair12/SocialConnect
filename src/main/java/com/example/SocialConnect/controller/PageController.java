@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.UserRepository;
+import com.example.SocialConnect.service.LikeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -18,6 +19,9 @@ public class PageController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private LikeService likeService;
+
     @GetMapping("/profile")
     public String profile(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -25,6 +29,10 @@ public class PageController {
         User user = userRepository.findByEmail(email)
             .orElseThrow(() -> new RuntimeException("User not found"));
         model.addAttribute("user", user);
+
+        // Получаем лайкнутые посты
+        var likedPosts = likeService.getLikedPostDtos(email);
+        model.addAttribute("likedPosts", likedPosts);
 
         return "profile";
     }

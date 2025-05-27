@@ -1,5 +1,6 @@
 package com.example.SocialConnect.service;
 
+import com.example.SocialConnect.dto.PostDto;
 import com.example.SocialConnect.model.Like;
 import com.example.SocialConnect.model.Post;
 import com.example.SocialConnect.model.User;
@@ -53,5 +54,19 @@ public class LikeService {
     public int getLikeCount(Long postId) {
         Post post = postRepository.findById(postId).orElseThrow(() -> new RuntimeException("Post not found"));
         return likeRepository.countByPost(post);
+    }
+
+    public List<PostDto> getLikedPostDtos(String userEmail) {
+        User user = userRepository.findByEmail(userEmail)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        List<Like> likes = likeRepository.findByUser(user);
+        return likes.stream()
+                .map(like -> {
+                    Post post = like.getPost();
+                    int likesCount = likeRepository.countByPost(post);
+                    // true, потому что мы сами смотрим лайкнутые
+                    return PostDto.fromEntity(post, true, likesCount);
+                })
+                .toList();
     }
 }

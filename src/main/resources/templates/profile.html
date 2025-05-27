@@ -22,19 +22,45 @@
               <p><b>Email:</b> <span th:text="${user.email}">email@example.com</span></p>
           </div>
       </div>
-      <!-- Действия профиля (кнопки) — можешь раскомментировать -->
-      <!--
-      <div class="profile-actions">
-          <a class="edit-btn" href="#" th:href="@{/profile/edit}">Редактировать профиль</a>
-          <a class="logout-btn" href="#" th:href="@{/logout}">Выйти</a>
-      </div>
-      -->
+    <div class="profile-tabs">
+        <button class="tab-btn active" data-tab="liked">Лайкнутые посты</button>
+        <button class="tab-btn" data-tab="subs">Подписки</button>
+        <button class="tab-btn" data-tab="my-posts">Мои посты</button>
+    </div>
+
+    <div class="profile-tab-content">
+        <!-- Лайкнутые посты -->
+        <div class="tab-content" id="tab-liked" style="display: block;">
+            <h3>Лайкнутые посты</h3>
+            <div class="liked-posts-list">
+                <div th:if="${likedPosts.isEmpty()}">Нет лайкнутых постов.</div>
+                <div th:each="post : ${likedPosts}" class="liked-post-card">
+                    <div><b th:text="${post.username}">Имя</b></div>
+                    <div th:text="${post.content}">Текст поста</div>
+                    <div>
+                        <span th:text="${post.createdAt}">Дата</span> · 
+                        <span th:text="'❤ ' + ${post.likes}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Подписки -->
+        <div class="tab-content" id="tab-subs" style="display: none;">
+            <h3>Подписки</h3>
+            <div>Подписок нет.</div>
+        </div>
+        <!-- Мои посты -->
+        <div class="tab-content" id="tab-my-posts" style="display: none;">
+            <h3>Мои посты</h3>
+            <div>Пока пусто.</div>
+        </div>
+    </div>
     </div>
     <div th:replace="~{fragments/bottom_menu :: *}"></div>
 </main>
 <th:block layout:fragment="extra_js">
     <script th:src="@{/js/bottom_menu.js}"></script>
-    <!-- <script th:src="@{/js/profile.js}"></script> -->
+    <script th:src="@{/js/profile.js}"></script>
 </th:block>
 </body>
 </html>
