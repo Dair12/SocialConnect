@@ -18,6 +18,17 @@ public class PageController {
     @Autowired
     private UserRepository userRepository;
 
+    @GetMapping("/profile")
+    public String profile(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = (String) auth.getPrincipal();
+        User user = userRepository.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        model.addAttribute("user", user);
+
+        return "profile";
+    }
+
     @GetMapping("/login")
     public String loginPage() {
         return "login"; // templates/login.html

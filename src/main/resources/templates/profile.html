@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Профиль</title>
+    <th:block layout:fragment="extra_css">
+        <link rel="stylesheet" th:href="@{/css/bottom_menu.css}">
+        <link rel="stylesheet" th:href="@{/css/profile.css}">
+    </th:block>
+</head>
+<body>
+<main class="content" layout:fragment="content">
+    <div class="profile-center-wrapper">
+      <div class="profile-header">
+          <div class="profile-avatar">
+              <div class="profile-circle" th:text="${#strings.substring(user.username, 0, 1).toUpperCase()}"></div>
+          </div>
+          <div class="profile-info">
+              <h2 th:text="${user.username}">Имя пользователя</h2>
+              <p><b>Email:</b> <span th:text="${user.email}">email@example.com</span></p>
+          </div>
+      </div>
+      <!-- Действия профиля (кнопки) — можешь раскомментировать -->
+      <!--
+      <div class="profile-actions">
+          <a class="edit-btn" href="#" th:href="@{/profile/edit}">Редактировать профиль</a>
+          <a class="logout-btn" href="#" th:href="@{/logout}">Выйти</a>
+      </div>
+      -->
+    </div>
+    <div th:replace="~{fragments/bottom_menu :: *}"></div>
+</main>
+<th:block layout:fragment="extra_js">
+    <script th:src="@{/js/bottom_menu.js}"></script>
+    <!-- <script th:src="@{/js/profile.js}"></script> -->
+</th:block>
+</body>
+</html>
