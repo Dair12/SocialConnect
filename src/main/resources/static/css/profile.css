@@ -129,3 +129,18 @@
     display: flex;
     gap: 12px;
 }
+.subscribe-btn {
+    padding: 8px 18px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.13s;
+}
+.subscribe-btn:hover {
+    background: #1653d1;
+}

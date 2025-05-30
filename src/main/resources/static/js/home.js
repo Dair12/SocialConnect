@@ -65,7 +65,9 @@ function renderPost(post) {
     const likedClass = post.likedByMe ? "liked" : "";
 
     div.innerHTML = `
-        <div style="font-weight: bold;">${post.username}</div>
+        <div style="font-weight: bold;">
+            <a href="/user/${post.userId}" class="user-link">${post.username}</a>
+        </div>
         <div style="margin: 5px 0;">${post.content}</div>
         <div style="display: flex; align-items: center; gap: 8px;">
             <button class="like-btn ${likedClass}" data-post-id="${post.id}">

@@ -14,14 +14,27 @@
 <main class="content" layout:fragment="content">
     <div class="profile-center-wrapper">
       <div class="profile-header">
-          <div class="profile-avatar">
-              <div class="profile-circle" th:text="${#strings.substring(user.username, 0, 1).toUpperCase()}"></div>
-          </div>
-          <div class="profile-info">
-              <h2 th:text="${user.username}">Имя пользователя</h2>
-              <p><b>Email:</b> <span th:text="${user.email}">email@example.com</span></p>
-          </div>
-      </div>
+        <div class="profile-avatar">
+            <div class="profile-circle" th:text="${#strings.substring(user.username, 0, 1).toUpperCase()}"></div>
+        </div>
+        <div class="profile-info">
+            <h2 th:text="${user.username}">Имя пользователя</h2>
+            <p><b>Email:</b> <span th:text="${user.email}">email@example.com</span></p>
+            <div>
+                <span id="followers-count" th:text="'Подписчиков: ' + ${followersCount}"></span>
+            </div>
+            <!-- Кнопка подписки, только если не свой профиль -->
+            <div th:if="${isOwnProfile == false}">
+                <button 
+                    th:id="'subscribe-btn'"
+                    th:text="${isFollowing} ? 'Отписаться' : 'Подписаться'"
+                    th:attr="data-user-id=${user.id}"
+                    class="subscribe-btn">
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="profile-tabs">
         <button class="tab-btn active" data-tab="liked">Лайкнутые посты</button>
         <button class="tab-btn" data-tab="subs">Подписки</button>

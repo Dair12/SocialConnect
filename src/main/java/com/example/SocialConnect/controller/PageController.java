@@ -3,11 +3,13 @@ package com.example.SocialConnect.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.UserRepository;
 import com.example.SocialConnect.service.LikeService;
 import com.example.SocialConnect.service.PostService;
+import com.example.SocialConnect.service.SubscriptionService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -25,6 +27,9 @@ public class PageController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private SubscriptionService subscriptionService;
 
     @GetMapping("/login")
     public String loginPage() {
@@ -48,6 +53,34 @@ public class PageController {
         model.addAttribute("user", user);
 
         return "home"; // это имя Thymeleaf-шаблона
+    }
+
+    @GetMapping("/user/{id}")
+    public String userProfile(@PathVariable Long id, Model model, Authentication authentication) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        model.addAttribute("user", user);
+
+        var likedPosts = likeService.getLikedPostDtos(user.getEmail());
+        model.addAttribute("likedPosts", likedPosts);
+
+        var myPosts = postService.getUserPosts(user.getId());
+        model.addAttribute("myPosts", myPosts);
+
+        // Количество подписчиков
+        int followersCount = subscriptionService.getFollowersCount(user.getId());
+        model.addAttribute("followersCount", followersCount);
+
+        // Определяем, просматривает ли профиль текущий юзер
+        String currentUserEmail = authentication.getName();
+        boolean isOwnProfile = currentUserEmail.equals(user.getEmail());
+        model.addAttribute("isOwnProfile", isOwnProfile);
+
+        // Показывать ли кнопку "Подписаться"
+        boolean isFollowing = subscriptionService.isFollowing(currentUserEmail, user.getId());
+        model.addAttribute("isFollowing", isFollowing);
+
+        return "profile"; // либо "user_profile", если шаблон отдельный
     }
 
     @GetMapping("/create_post")
@@ -76,6 +109,10 @@ public class PageController {
         // Мои посты
         var myPosts = postService.getUserPosts(user.getId());
         model.addAttribute("myPosts", myPosts);
+
+        model.addAttribute("isOwnProfile", true);
+        model.addAttribute("followersCount", subscriptionService.getFollowersCount(user.getId()));
+        model.addAttribute("isFollowing", false);
 
         return "profile";
     }

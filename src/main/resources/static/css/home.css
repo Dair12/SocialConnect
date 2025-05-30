@@ -28,3 +28,12 @@
 .like-btn:active {
     transform: scale(1.18);
 }
+.user-link {
+    color: #1653d1;
+    font-weight: 600;
+    transition: color 0.13s;
+}
+.user-link:hover {
+    color: #e84118;
+    text-decoration: underline;
+}
