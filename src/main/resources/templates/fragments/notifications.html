@@ -1,0 +1,13 @@
+<!-- fragments/notifications.html -->
+<div th:fragment="notifications">
+    <div class="notifications-dropdown" id="notifications-dropdown" style="display: none;">
+        <h4>Уведомления</h4>
+        <div th:if="${notifications.isEmpty()}">Нет новых уведомлений.</div>
+        <div th:each="notif : ${notifications}">
+            <a th:href="@{'/post/' + ${notif.postId}}" class="notification-item" th:classappend="${notif.read} ? 'read' : 'unread'">
+                <span th:text="${notif.message}"></span>
+                <span class="notif-date" th:text="${#temporals.format(notif.createdAt, 'dd.MM HH:mm')}"></span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -8,6 +8,7 @@
     <th:block layout:fragment="extra_css">
         <link rel="stylesheet" th:href="@{/css/bottom_menu.css}">
         <link rel="stylesheet" th:href="@{/css/profile.css}">
+        <link rel="stylesheet" th:href="@{/css/notifications.css}">
     </th:block>
 </head>
 <body>
@@ -32,6 +33,11 @@
                     class="subscribe-btn">
                 </button>
             </div>
+        </div>
+            <!-- Колокольчик с уведомлениями -->
+        <div class="profile-bell" style="margin-left:auto;position:relative;">
+            <img src="/icons/bell.png" alt="Уведомления" id="bell-icon" style="width:28px;cursor:pointer;">
+            <div th:replace="~{fragments/notifications :: notifications}"></div>
         </div>
     </div>
 
@@ -84,6 +90,7 @@
 <th:block layout:fragment="extra_js">
     <script th:src="@{/js/bottom_menu.js}"></script>
     <script th:src="@{/js/profile.js}"></script>
+    <script th:src="@{/js/notifications.js}"></script>
 </th:block>
 </body>
 </html>

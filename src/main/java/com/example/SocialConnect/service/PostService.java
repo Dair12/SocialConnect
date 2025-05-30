@@ -1,9 +1,11 @@
 package com.example.SocialConnect.service;
 
 import com.example.SocialConnect.model.Post;
+import com.example.SocialConnect.model.Subscription;
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.LikeRepository;
 import com.example.SocialConnect.repository.PostRepository;
+import com.example.SocialConnect.repository.SubscriptionRepository;
 import com.example.SocialConnect.repository.UserRepository;
 import com.example.SocialConnect.dto.PostDto;
 
@@ -30,13 +32,31 @@ public class PostService {
     @Autowired
     private LikeRepository likeRepository;
 
+    @Autowired
+    private SubscriptionRepository subscriptionRepository;
+
+    @Autowired
+    private NotificationService notificationService;
+
     public Post createPost(String content, String userEmail) {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         Post post = new Post();
         post.setContent(content);
         post.setUser(user);
-        return postRepository.save(post);
+        Post savedPost = postRepository.save(post);
+
+        // Уведомления для подписчиков
+        List<Subscription> followers = subscriptionRepository.findByFollowing(user);
+        for (Subscription sub : followers) {
+            notificationService.createNotification(
+                sub.getFollower(),
+                user.getUsername() + " опубликовал(а) новый пост",
+                savedPost.getId()
+            );
+        }
+
+        return savedPost;
     }
 
     public List<PostDto> getRandomPosts(int page, int size, User currentUser) {

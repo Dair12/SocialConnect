@@ -5,11 +5,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.SocialConnect.model.Notification;
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.UserRepository;
 import com.example.SocialConnect.service.LikeService;
+import com.example.SocialConnect.service.NotificationService;
 import com.example.SocialConnect.service.PostService;
 import com.example.SocialConnect.service.SubscriptionService;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -30,6 +34,9 @@ public class PageController {
 
     @Autowired
     private SubscriptionService subscriptionService;
+
+    @Autowired
+    private NotificationService notificationService;
 
     @GetMapping("/login")
     public String loginPage() {
@@ -110,6 +117,10 @@ public class PageController {
         var myPosts = postService.getUserPosts(user.getId());
         model.addAttribute("myPosts", myPosts);
 
+        //notifications
+        List<Notification> notifications = notificationService.getUserNotifications(user);
+    
+        model.addAttribute("notifications", notifications);
         model.addAttribute("isOwnProfile", true);
         model.addAttribute("followersCount", subscriptionService.getFollowersCount(user.getId()));
         model.addAttribute("isFollowing", false);

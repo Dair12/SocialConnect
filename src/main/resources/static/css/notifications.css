@@ -1,0 +1,45 @@
+.notifications-dropdown {
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    background: #fff;
+    width: 320px;
+    box-shadow: 0 4px 24px rgba(30,54,95,0.10);
+    border-radius: 14px;
+    z-index: 1000;
+    padding: 14px 8px 8px 8px;
+}
+
+.notifications-dropdown h4 {
+    font-size: 1.13em;
+    color: #2563eb;
+    margin-bottom: 6px;
+}
+
+.notification-item {
+    display: block;
+    padding: 8px 8px 6px 8px;
+    border-radius: 7px;
+    background: #f4f7fb;
+    margin-bottom: 4px;
+    color: #111827;
+    font-size: 0.97em;
+    transition: background 0.17s;
+}
+
+.notification-item.unread {
+    background: #e8f0fe;
+    font-weight: bold;
+}
+.notification-item.read {
+    opacity: 0.65;
+}
+.notification-item:hover {
+    background: #daeafe;
+}
+.notif-date {
+    display: block;
+    color: #889;
+    font-size: 0.93em;
+    margin-top: 2px;
+}
