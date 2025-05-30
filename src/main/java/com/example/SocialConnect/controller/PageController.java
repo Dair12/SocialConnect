@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.UserRepository;
 import com.example.SocialConnect.service.LikeService;
+import com.example.SocialConnect.service.PostService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,20 +23,8 @@ public class PageController {
     @Autowired
     private LikeService likeService;
 
-    @GetMapping("/profile")
-    public String profile(Model model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String email = (String) auth.getPrincipal();
-        User user = userRepository.findByEmail(email)
-            .orElseThrow(() -> new RuntimeException("User not found"));
-        model.addAttribute("user", user);
-
-        // Получаем лайкнутые посты
-        var likedPosts = likeService.getLikedPostDtos(email);
-        model.addAttribute("likedPosts", likedPosts);
-
-        return "profile";
-    }
+    @Autowired
+    private PostService postService;
 
     @GetMapping("/login")
     public String loginPage() {
@@ -70,6 +59,25 @@ public class PageController {
         model.addAttribute("user", user);
 
         return "create_post";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = (String) auth.getPrincipal();
+        User user = userRepository.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        model.addAttribute("user", user);
+
+        // Лайкнутые посты
+        var likedPosts = likeService.getLikedPostDtos(email);
+        model.addAttribute("likedPosts", likedPosts);
+
+        // Мои посты
+        var myPosts = postService.getUserPosts(user.getId());
+        model.addAttribute("myPosts", myPosts);
+
+        return "profile";
     }
 }
 

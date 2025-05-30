@@ -51,4 +51,15 @@ public class PostService {
             ))
             .collect(Collectors.toList());
     }
+
+    public List<PostDto> getUserPosts(Long userId) {
+        List<Post> posts = postRepository.findByUserId(userId);
+        return posts.stream()
+                .map(post -> PostDto.fromEntity(
+                        post,
+                        false,
+                        likeRepository.countByPost(post)
+                ))
+                .collect(Collectors.toList());
+    }
 }

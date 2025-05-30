@@ -52,7 +52,17 @@
         <!-- Мои посты -->
         <div class="tab-content" id="tab-my-posts" style="display: none;">
             <h3>Мои посты</h3>
-            <div>Пока пусто.</div>
+            <div class="my-posts-list">
+                <div th:if="${myPosts.isEmpty()}">Пока пусто.</div>
+                <div th:each="post : ${myPosts}" class="my-post-card">
+                    <div><b th:text="${post.username}">Имя</b></div>
+                    <div th:text="${post.content}">Текст поста</div>
+                    <div>
+                        <span th:text="${post.createdAt}">Дата</span> · 
+                        <span th:text="'❤ ' + ${post.likes}"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
