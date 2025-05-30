@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (path.startsWith('/profile')) {
         document.querySelector('.bottom-menu .menu-item.profile')?.classList.add('active');
     } else if (path === '/' || path.startsWith('/home')) {
-        items[0]?.classList.add('active');
+        document.querySelector('.bottom-menu .menu-item[data-index="0"]')?.classList.add('active');
+    } else if (path.startsWith('/create_post')) {
+        document.querySelector('.bottom-menu .menu-item[data-index="2"]')?.classList.add('active');
     }
     // Можешь добавить else if для других пунктов меню, если они появятся
 
@@ -35,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if (homeBtn) {
         homeBtn.addEventListener('click', function () {
             window.location.href = '/';
+        });
+    }
+
+    const createBtn = document.querySelector('.bottom-menu .menu-item[data-index="2"]');
+    if (createBtn) {
+        createBtn.addEventListener('click', function () {
+            window.location.href = '/create_post';
         });
     }
 });

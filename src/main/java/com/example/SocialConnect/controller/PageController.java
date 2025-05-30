@@ -60,5 +60,16 @@ public class PageController {
 
         return "home"; // это имя Thymeleaf-шаблона
     }
+
+    @GetMapping("/create_post")
+    public String createPostPage(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String email = (String) auth.getPrincipal();
+        User user = userRepository.findByEmail(email)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        model.addAttribute("user", user);
+
+        return "create_post";
+    }
 }
 

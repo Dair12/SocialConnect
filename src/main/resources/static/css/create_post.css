@@ -1,0 +1,72 @@
+.create-post-center-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 84px);
+    padding-bottom: 84px;
+    justify-content: center;
+}
+
+.create-post-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #e4e8f1;
+    padding: 30px 24px 22px 24px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.create-post-card h2 {
+    margin-bottom: 14px;
+    text-align: center;
+    color: #1663FF;
+    font-size: 1.45em;
+}
+
+#create-post-form textarea {
+    width: 100%;
+    min-height: 95px;
+    border-radius: 12px;
+    border: 1px solid #e1e1e1;
+    resize: vertical;
+    padding: 13px;
+    font-size: 1.1em;
+    margin-bottom: 13px;
+    background: #f7fafd;
+    box-shadow: 0 1px 4px rgba(22,99,255,0.04);
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+#create-post-form textarea:focus {
+    border-color: #1663FF;
+}
+
+.create-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #1663FF 85%, #2253b3 100%);
+    color: #fff;
+    padding: 12px 0;
+    border: none;
+    border-radius: 9px;
+    font-size: 1.12em;
+    font-weight: bold;
+    margin-top: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(22,99,255,0.07);
+    transition: background 0.13s;
+}
+.create-btn:hover {
+    background: #2253b3;
+}
+
+.form-error {
+    color: #e84118;
+    font-size: 0.99em;
+    margin-top: 6px;
+    text-align: center;
+}
