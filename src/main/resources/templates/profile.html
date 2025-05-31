@@ -35,7 +35,7 @@
             </div>
         </div>
             <!-- Колокольчик с уведомлениями -->
-        <div class="profile-bell" style="margin-left:auto;position:relative;">
+        <div th:if="${isOwnProfile}" class="profile-bell" style="margin-left:auto;position:relative;">
             <img src="/icons/bell.png" alt="Уведомления" id="bell-icon" style="width:28px;cursor:pointer;">
             <div th:replace="~{fragments/notifications :: notifications}"></div>
         </div>

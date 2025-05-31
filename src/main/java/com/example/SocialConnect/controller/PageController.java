@@ -4,8 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.SocialConnect.model.Notification;
+import com.example.SocialConnect.model.Post;
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.UserRepository;
 import com.example.SocialConnect.service.LikeService;
@@ -64,6 +66,15 @@ public class PageController {
 
     @GetMapping("/user/{id}")
     public String userProfile(@PathVariable Long id, Model model, Authentication authentication) {
+        String currentUserEmail = authentication.getName();
+        User currentUser = userRepository.findByEmail(currentUserEmail)
+            .orElseThrow(() -> new RuntimeException("Current user not found"));
+
+        if (currentUser.getId().equals(id)) {
+            // Если пользователь открыл свой же профиль по /user/{id} — редирект на /profile
+            return "redirect:/profile";
+        }
+
         User user = userRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("User not found"));
         model.addAttribute("user", user);
@@ -79,7 +90,6 @@ public class PageController {
         model.addAttribute("followersCount", followersCount);
 
         // Определяем, просматривает ли профиль текущий юзер
-        String currentUserEmail = authentication.getName();
         boolean isOwnProfile = currentUserEmail.equals(user.getEmail());
         model.addAttribute("isOwnProfile", isOwnProfile);
 
@@ -126,6 +136,37 @@ public class PageController {
         model.addAttribute("isFollowing", false);
 
         return "profile";
+    }
+
+    @GetMapping("/post/{id}")
+    public String viewPost(
+        @PathVariable Long id,
+        @RequestParam(value = "notificationId", required = false) Long notificationId,
+        Model model
+    ) {
+        // Получаем пост по id
+        Post post = postService.getPostById(id);
+        if (post == null) {
+            return "error/404"; // если пост не найден
+        }
+
+        // Если notificationId передан, помечаем как прочитанное
+        if (notificationId != null) {
+            notificationService.markAsRead(notificationId);
+        }
+
+        model.addAttribute("post", post);
+
+        // Добавляем пользователя для меню и др.
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null && auth.isAuthenticated()) {
+            String email = (String) auth.getPrincipal();
+            User user = userRepository.findByEmail(email)
+                .orElse(null);
+            model.addAttribute("user", user);
+        }
+
+        return "post";
     }
 }
 

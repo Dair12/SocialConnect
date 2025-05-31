@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Пост</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <div class="post-view">
+        <h2 th:text="${post.user.username}">Пользователь</h2>
+        <p th:text="${post.content}">Текст поста</p>
+        <div>
+            <span th:text="${#temporals.format(post.createdAt, 'dd.MM.yyyy HH:mm')}">Дата</span>
+        </div>
+        <a href="/" style="color:#2563eb;">← На главную</a>
+    </div>
+</body>
+</html>

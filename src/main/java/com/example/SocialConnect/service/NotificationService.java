@@ -22,6 +22,15 @@ public class NotificationService {
     }
 
     public List<Notification> getUserNotifications(User user) {
-        return notificationRepository.findByUserOrderByCreatedAtDesc(user);
+        List<Notification> notifications = notificationRepository.findByUserOrderByCreatedAtDesc(user);
+        return notifications != null ? notifications : java.util.Collections.emptyList();
+    }
+
+    public void markAsRead(Long notificationId) {
+        Notification notif = notificationRepository.findById(notificationId).orElse(null);
+        if (notif != null && !notif.isRead()) {
+            notif.setRead(true);
+            notificationRepository.save(notif);
+        }
     }
 }
