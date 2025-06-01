@@ -144,3 +144,19 @@
 .subscribe-btn:hover {
     background: #1653d1;
 }
+.subscription-user {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.subscription-user:last-child {
+    border-bottom: none;
+}
+.subscription-user a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 6px;
+}

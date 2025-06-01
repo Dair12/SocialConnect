@@ -4,6 +4,9 @@ import com.example.SocialConnect.model.Subscription;
 import com.example.SocialConnect.model.User;
 import com.example.SocialConnect.repository.SubscriptionRepository;
 import com.example.SocialConnect.repository.UserRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,5 +56,15 @@ public class SubscriptionService {
         User following = userRepository.findById(followingId)
             .orElseThrow(() -> new RuntimeException("User not found"));
         return subscriptionRepository.findByFollowerAndFollowing(follower, following).isPresent();
+    }
+
+    public List<User> getSubscriptions(Long followerId) {
+        User follower = userRepository.findById(followerId)
+            .orElseThrow(() -> new RuntimeException("Follower not found"));
+        List<Subscription> subs = subscriptionRepository.findByFollower(follower);
+        // Преобразуем в список пользователей, на кого подписан
+        return subs.stream()
+                .map(Subscription::getFollowing)
+                .toList();
     }
 }

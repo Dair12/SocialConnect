@@ -71,7 +71,6 @@ public class PageController {
             .orElseThrow(() -> new RuntimeException("Current user not found"));
 
         if (currentUser.getId().equals(id)) {
-            // Если пользователь открыл свой же профиль по /user/{id} — редирект на /profile
             return "redirect:/profile";
         }
 
@@ -89,6 +88,10 @@ public class PageController {
         int followersCount = subscriptionService.getFollowersCount(user.getId());
         model.addAttribute("followersCount", followersCount);
 
+        // Список подписок! <--- добавь эту строку
+        var subscriptions = subscriptionService.getSubscriptions(user.getId());
+        model.addAttribute("subscriptions", subscriptions);
+
         // Определяем, просматривает ли профиль текущий юзер
         boolean isOwnProfile = currentUserEmail.equals(user.getEmail());
         model.addAttribute("isOwnProfile", isOwnProfile);
@@ -97,7 +100,7 @@ public class PageController {
         boolean isFollowing = subscriptionService.isFollowing(currentUserEmail, user.getId());
         model.addAttribute("isFollowing", isFollowing);
 
-        return "profile"; // либо "user_profile", если шаблон отдельный
+        return "profile";
     }
 
     @GetMapping("/create_post")
@@ -127,10 +130,14 @@ public class PageController {
         var myPosts = postService.getUserPosts(user.getId());
         model.addAttribute("myPosts", myPosts);
 
+        // Список подписок
+        var subscriptions = subscriptionService.getSubscriptions(user.getId());
+        model.addAttribute("subscriptions", subscriptions);
+
         //notifications
         List<Notification> notifications = notificationService.getUserNotifications(user);
-    
         model.addAttribute("notifications", notifications);
+
         model.addAttribute("isOwnProfile", true);
         model.addAttribute("followersCount", subscriptionService.getFollowersCount(user.getId()));
         model.addAttribute("isFollowing", false);

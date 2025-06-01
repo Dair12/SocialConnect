@@ -66,7 +66,13 @@
         <!-- Подписки -->
         <div class="tab-content" id="tab-subs" style="display: none;">
             <h3>Подписки</h3>
-            <div>Подписок нет.</div>
+            <div th:if="${subscriptions.isEmpty()}">Подписок нет.</div>
+            <div th:each="sub : ${subscriptions}" class="subscription-user">
+                <a th:href="@{'/user/' + ${sub.id}}">
+                    <b th:text="${sub.username}">Имя</b>
+                </a>
+                <span th:text="${sub.email}"></span>
+            </div>
         </div>
         <!-- Мои посты -->
         <div class="tab-content" id="tab-my-posts" style="display: none;">
