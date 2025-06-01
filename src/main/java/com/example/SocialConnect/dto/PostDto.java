@@ -1,5 +1,7 @@
 package com.example.SocialConnect.dto;
 
+import java.time.format.DateTimeFormatter;
+
 import com.example.SocialConnect.model.Post;
 
 public class PostDto {
@@ -19,7 +21,8 @@ public class PostDto {
         dto.userId = post.getUser().getId();
         dto.username = post.getUser().getUsername();
         dto.content = post.getContent();
-        dto.createdAt = post.getCreatedAt().toString();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        dto.createdAt = post.getCreatedAt().format(formatter);
         dto.likedByMe = likedByMe;
         dto.likes = likesCount;
         dto.imageBase641 = post.getImageBase641();

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+      <!-- xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"-->
 <head>
     <title>Пост</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
     <link rel="stylesheet" th:href="@{/css/post.css}">
 </head>
 <body>
@@ -21,12 +21,13 @@
                 th:src="'data:image/jpeg;base64,' + ${post.imageBase642}" alt="Фото 2"/>
         </div>
         <div>
-            <span th:text="${#temporals.format(post.createdAt, 'dd.MM.yyyy HH:mm')}">Дата</span>
+            <span th:text="${post.createdAt}">Дата</span>
         </div>
         <a href="/" style="color:#2563eb;">← На главную</a>
     </div>
 <th:block layout:fragment="extra_js">
     <script th:src="@{/js/post.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
 </th:block>
 </body>
 </html>

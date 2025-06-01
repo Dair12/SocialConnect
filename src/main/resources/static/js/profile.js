@@ -40,3 +40,15 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(() => alert("Ошибка при подписке/отписке"));
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    enableImageZoom();
+
+    // Если у тебя есть переключение вкладок:
+    const tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            setTimeout(enableImageZoom, 20); // Дождаться отрисовки DOM
+        });
+    });
+});
