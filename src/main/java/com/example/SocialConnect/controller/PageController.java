@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.SocialConnect.dto.PostDto;
 import com.example.SocialConnect.model.Notification;
 import com.example.SocialConnect.model.Post;
 import com.example.SocialConnect.model.User;
@@ -151,20 +152,23 @@ public class PageController {
         @RequestParam(value = "notificationId", required = false) Long notificationId,
         Model model
     ) {
-        // Получаем пост по id
         Post post = postService.getPostById(id);
         if (post == null) {
-            return "error/404"; // если пост не найден
+            return "error/404";
         }
 
-        // Если notificationId передан, помечаем как прочитанное
+        // Используй fromEntity чтобы получить PostDto
+        int likesCount = postService.getLikeCount(post.getId()); // добавь этот метод если нужно
+        boolean likedByMe = false; // если нужна эта логика
+        PostDto postDto = PostDto.fromEntity(post, likedByMe, likesCount);
+
         if (notificationId != null) {
             notificationService.markAsRead(notificationId);
         }
 
-        model.addAttribute("post", post);
+        model.addAttribute("post", postDto); // <-- вот здесь PostDto
 
-        // Добавляем пользователя для меню и др.
+        // Пользователь для меню
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.isAuthenticated()) {
             String email = (String) auth.getPrincipal();

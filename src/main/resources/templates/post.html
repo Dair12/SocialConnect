@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <title>Пост</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/post.css}">
 </head>
 <body>
     <div class="post-view">
-        <h2 th:text="${post.user.username}">Пользователь</h2>
+        <h2 th:text="${post.username}">Пользователь</h2>
         <p th:text="${post.content}">Текст поста</p>
+        <div class="post-images-block"
+            th:if="${post.imageBase641 != null or post.imageBase642 != null}">
+            <img class="post-img"
+                th:if="${post.imageBase641 != null}"
+                th:src="'data:image/jpeg;base64,' + ${post.imageBase641}" alt="Фото 1"/>
+            <img class="post-img"
+                th:if="${post.imageBase642 != null}"
+                th:src="'data:image/jpeg;base64,' + ${post.imageBase642}" alt="Фото 2"/>
+        </div>
         <div>
             <span th:text="${#temporals.format(post.createdAt, 'dd.MM.yyyy HH:mm')}">Дата</span>
         </div>
         <a href="/" style="color:#2563eb;">← На главную</a>
     </div>
+<th:block layout:fragment="extra_js">
+    <script th:src="@{/js/post.js}"></script>
+</th:block>
 </body>
 </html>

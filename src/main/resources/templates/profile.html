@@ -50,12 +50,21 @@
     <div class="profile-tab-content">
         <!-- Лайкнутые посты -->
         <div class="tab-content" id="tab-liked" style="display: block;">
-            <h3>Лайкнутые посты</h3>
             <div class="liked-posts-list">
                 <div th:if="${likedPosts.isEmpty()}">Нет лайкнутых постов.</div>
                 <div th:each="post : ${likedPosts}" class="liked-post-card">
                     <div><b th:text="${post.username}">Имя</b></div>
                     <div th:text="${post.content}">Текст поста</div>
+                    <!-- Картинки -->
+                    <div class="post-images-block" 
+                        th:if="${post.imageBase641 != null or post.imageBase642 != null}">
+                        <img class="post-img"
+                            th:if="${post.imageBase641 != null}"
+                            th:src="'data:image/jpeg;base64,' + ${post.imageBase641}" alt="Фото 1"/>
+                        <img class="post-img"
+                            th:if="${post.imageBase642 != null}"
+                            th:src="'data:image/jpeg;base64,' + ${post.imageBase642}" alt="Фото 2"/>
+                    </div>
                     <div>
                         <span th:text="${post.createdAt}">Дата</span> · 
                         <span th:text="'❤ ' + ${post.likes}"></span>
@@ -65,7 +74,6 @@
         </div>
         <!-- Подписки -->
         <div class="tab-content" id="tab-subs" style="display: none;">
-            <h3>Подписки</h3>
             <div th:if="${subscriptions.isEmpty()}">Подписок нет.</div>
             <div th:each="sub : ${subscriptions}" class="subscription-user">
                 <a th:href="@{'/user/' + ${sub.id}}">
@@ -76,12 +84,21 @@
         </div>
         <!-- Мои посты -->
         <div class="tab-content" id="tab-my-posts" style="display: none;">
-            <h3>Мои посты</h3>
             <div class="my-posts-list">
                 <div th:if="${myPosts.isEmpty()}">Пока пусто.</div>
                 <div th:each="post : ${myPosts}" class="my-post-card">
                     <div><b th:text="${post.username}">Имя</b></div>
                     <div th:text="${post.content}">Текст поста</div>
+                    <!-- Картинки -->
+                    <div class="post-images-block" 
+                        th:if="${post.imageBase641 != null or post.imageBase642 != null}">
+                        <img class="post-img"
+                            th:if="${post.imageBase641 != null}"
+                            th:src="'data:image/jpeg;base64,' + ${post.imageBase641}" alt="Фото 1"/>
+                        <img class="post-img"
+                            th:if="${post.imageBase642 != null}"
+                            th:src="'data:image/jpeg;base64,' + ${post.imageBase642}" alt="Фото 2"/>
+                    </div>
                     <div>
                         <span th:text="${post.createdAt}">Дата</span> · 
                         <span th:text="'❤ ' + ${post.likes}"></span>

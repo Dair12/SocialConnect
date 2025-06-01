@@ -64,11 +64,24 @@ function renderPost(post) {
     div.className = "post-card";
     const likedClass = post.likedByMe ? "liked" : "";
 
+    // Сборка html для картинок
+    let imagesHtml = "";
+    if (post.imageBase641) {
+        imagesHtml += `<img class="post-img" src="data:image/jpeg;base64,${post.imageBase641}" alt="Фото 1"/>`;
+    }
+    if (post.imageBase642) {
+        imagesHtml += `<img class="post-img" src="data:image/jpeg;base64,${post.imageBase642}" alt="Фото 2"/>`;
+    }
+    if (imagesHtml) {
+        imagesHtml = `<div class="post-images-block">${imagesHtml}</div>`;
+    }
+
     div.innerHTML = `
         <div style="font-weight: bold;">
             <a href="/user/${post.userId}" class="user-link">${post.username}</a>
         </div>
         <div style="margin: 5px 0;">${post.content}</div>
+        ${imagesHtml}
         <div style="display: flex; align-items: center; gap: 8px;">
             <button class="like-btn ${likedClass}" data-post-id="${post.id}">
                 <span class="like-heart">${post.likedByMe ? "❤️" : "🤍"}</span>

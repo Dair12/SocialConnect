@@ -88,4 +88,10 @@ public class PostService {
     public Post getPostById(Long id) {
         return postRepository.findById(id).orElse(null);
     }
+
+    public int getLikeCount(Long postId) {
+        Post post = postRepository.findById(postId).orElse(null);
+        if (post == null) return 0;
+        return likeRepository.countByPost(post);
+    }
 }
