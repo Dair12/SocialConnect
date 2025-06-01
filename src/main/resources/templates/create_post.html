@@ -17,6 +17,30 @@
             <h2>Создать пост</h2>
             <form id="create-post-form">
                 <textarea id="post-content" rows="5" maxlength="500" placeholder="Что нового?" required></textarea>
+                <div class="images-upload-block">
+                    <div class="image-preview-wrapper">
+                        <input type="file" id="image1" accept="image/*" style="display:none;">
+                        <label for="image1" class="image-upload-label">
+                            <span class="add-photo-icon">📷</span>
+                            <span class="add-photo-text">Добавить фото 1</span>
+                        </label>
+                        <div class="image-preview" id="preview1" style="display:none;">
+                            <img id="img-preview1" src="" alt="Фото 1"/>
+                            <button type="button" class="remove-image-btn" onclick="removeImage(1)">✕</button>
+                        </div>
+                    </div>
+                    <div class="image-preview-wrapper">
+                        <input type="file" id="image2" accept="image/*" style="display:none;">
+                        <label for="image2" class="image-upload-label">
+                            <span class="add-photo-icon">📷</span>
+                            <span class="add-photo-text">Добавить фото 2</span>
+                        </label>
+                        <div class="image-preview" id="preview2" style="display:none;">
+                            <img id="img-preview2" src="" alt="Фото 2"/>
+                            <button type="button" class="remove-image-btn" onclick="removeImage(2)">✕</button>
+                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="create-btn">Опубликовать</button>
             </form>
             <div id="create-post-error" class="form-error" style="display: none;"></div>

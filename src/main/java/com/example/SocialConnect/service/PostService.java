@@ -38,11 +38,13 @@ public class PostService {
     @Autowired
     private NotificationService notificationService;
 
-    public Post createPost(String content, String userEmail) {
+    public Post createPost(String content, String imageBase641, String imageBase642, String userEmail) {
         User user = userRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         Post post = new Post();
         post.setContent(content);
+        post.setImageBase641(imageBase641);
+        post.setImageBase642(imageBase642);
         post.setUser(user);
         Post savedPost = postRepository.save(post);
 

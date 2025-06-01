@@ -13,6 +13,12 @@ public class Post {
 
     private LocalDateTime createdAt;
 
+    @Lob
+    private String imageBase641;
+
+    @Lob
+    private String imageBase642;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -33,4 +39,10 @@ public class Post {
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
+
+    public String getImageBase641() { return imageBase641; }
+    public void setImageBase641(String imageBase641) { this.imageBase641 = imageBase641; }
+
+    public String getImageBase642() { return imageBase642; }
+    public void setImageBase642(String imageBase642) { this.imageBase642 = imageBase642; }
 }

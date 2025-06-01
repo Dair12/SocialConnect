@@ -26,7 +26,12 @@ public class PostController {
     @PostMapping("/create")
     public ResponseEntity<Post> createPost(@RequestBody CreatePostRequest request, Authentication authentication) {
         String userEmail = authentication.getName();
-        Post post = postService.createPost(request.content, userEmail);
+        Post post = postService.createPost(
+            request.content,
+            request.imageBase641,
+            request.imageBase642,
+            userEmail
+        );
         return ResponseEntity.ok(post);
     }
 

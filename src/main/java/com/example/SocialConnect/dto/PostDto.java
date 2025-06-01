@@ -10,6 +10,8 @@ public class PostDto {
     public String createdAt;
     public boolean likedByMe;
     public int likes;
+    public String imageBase641;
+    public String imageBase642;
 
     public static PostDto fromEntity(Post post, boolean likedByMe, int likesCount) {
         PostDto dto = new PostDto();
@@ -20,6 +22,8 @@ public class PostDto {
         dto.createdAt = post.getCreatedAt().toString();
         dto.likedByMe = likedByMe;
         dto.likes = likesCount;
+        dto.imageBase641 = post.getImageBase641();
+        dto.imageBase642 = post.getImageBase642();
         return dto;
     }
 }
