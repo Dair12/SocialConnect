@@ -51,6 +51,7 @@ function loadPosts() {
                     document.getElementById('post-feed').appendChild(renderPost(post));
                 }
                 currentPage++;
+                enableImageZoom();
             }
         })
         .finally(() => {

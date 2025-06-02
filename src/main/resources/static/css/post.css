@@ -23,7 +23,7 @@
     justify-content: flex-start;
 }
 
-.post-img {
+/* .post-img {
     max-width: 220px;
     max-height: 220px;
     object-fit: cover;
@@ -37,4 +37,4 @@
 .post-img:hover {
     transform: scale(1.07);
     box-shadow: 0 6px 24px rgba(36,82,186,0.08);
-}
+} */

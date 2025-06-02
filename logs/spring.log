@@ -1782,3 +1782,240 @@ This generated password is for development use only. Your security configuration
 2025-06-01T19:24:06.302+06:00  INFO 2944 --- [SocialConnect] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-06-01T19:24:06.303+06:00  INFO 2944 --- [SocialConnect] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-06-01T19:24:06.305+06:00  INFO 2944 --- [SocialConnect] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-01T19:28:34.367+06:00  INFO 2944 --- [SocialConnect] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-01T19:28:34.376+06:00  INFO 2944 --- [SocialConnect] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-01T19:28:34.382+06:00  INFO 2944 --- [SocialConnect] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:28:34.384+06:00  INFO 2944 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-01T19:28:34.390+06:00  INFO 2944 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-01T19:28:43.877+06:00  INFO 14012 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Starting SocialConnectApplicationTests using Java 23.0.1 with PID 14012 (started by ACER in D:\RealProject\SocialConnect)
+2025-06-01T19:28:43.879+06:00  INFO 14012 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-06-01T19:28:44.924+06:00  INFO 14012 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-01T19:28:44.999+06:00  INFO 14012 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 5 JPA repository interfaces.
+2025-06-01T19:28:45.572+06:00  INFO 14012 --- [SocialConnect] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-01T19:28:45.650+06:00  INFO 14012 --- [SocialConnect] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-01T19:28:45.695+06:00  INFO 14012 --- [SocialConnect] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-01T19:28:46.037+06:00  INFO 14012 --- [SocialConnect] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-01T19:28:46.070+06:00  INFO 14012 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-01T19:28:46.270+06:00  INFO 14012 --- [SocialConnect] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@26d8908e
+2025-06-01T19:28:46.272+06:00  INFO 14012 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-01T19:28:46.292+06:00  WARN 14012 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-01T19:28:46.293+06:00  WARN 14012 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-01T19:28:46.319+06:00  INFO 14012 --- [SocialConnect] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-01T19:28:47.270+06:00  INFO 14012 --- [SocialConnect] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-01T19:28:47.418+06:00  INFO 14012 --- [SocialConnect] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:28:47.973+06:00  WARN 14012 --- [SocialConnect] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-01T19:28:48.002+06:00  WARN 14012 --- [SocialConnect] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: f5187ac3-5e96-417b-9de2-95b171ed59e1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-06-01T19:28:48.016+06:00  INFO 14012 --- [SocialConnect] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-06-01T19:28:48.813+06:00  INFO 14012 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Started SocialConnectApplicationTests in 5.311 seconds (process running for 6.523)
+2025-06-01T19:28:49.561+06:00  INFO 14012 --- [SocialConnect] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:28:49.566+06:00  INFO 14012 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-01T19:28:49.579+06:00  INFO 14012 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-01T19:30:56.649+06:00  INFO 18172 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Starting SocialConnectApplicationTests using Java 23.0.1 with PID 18172 (started by ACER in D:\RealProject\SocialConnect)
+2025-06-01T19:30:56.651+06:00  INFO 18172 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-06-01T19:30:57.848+06:00  INFO 18172 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-01T19:30:57.918+06:00  INFO 18172 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 5 JPA repository interfaces.
+2025-06-01T19:30:58.528+06:00  INFO 18172 --- [SocialConnect] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-01T19:30:58.614+06:00  INFO 18172 --- [SocialConnect] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-01T19:30:58.657+06:00  INFO 18172 --- [SocialConnect] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-01T19:30:59.044+06:00  INFO 18172 --- [SocialConnect] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-01T19:30:59.082+06:00  INFO 18172 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-01T19:30:59.306+06:00  INFO 18172 --- [SocialConnect] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61d09475
+2025-06-01T19:30:59.308+06:00  INFO 18172 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-01T19:30:59.329+06:00  WARN 18172 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-01T19:30:59.330+06:00  WARN 18172 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-01T19:30:59.350+06:00  INFO 18172 --- [SocialConnect] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-01T19:31:00.245+06:00  INFO 18172 --- [SocialConnect] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-01T19:31:00.386+06:00  INFO 18172 --- [SocialConnect] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:31:00.912+06:00  WARN 18172 --- [SocialConnect] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-01T19:31:00.936+06:00  WARN 18172 --- [SocialConnect] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: bee319dd-bb75-46bb-ba56-6c2127c2c4f3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-06-01T19:31:00.948+06:00  INFO 18172 --- [SocialConnect] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-06-01T19:31:01.772+06:00  INFO 18172 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Started SocialConnectApplicationTests in 5.566 seconds (process running for 6.881)
+2025-06-01T19:31:02.717+06:00  INFO 18172 --- [SocialConnect] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:31:02.724+06:00  INFO 18172 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-01T19:31:02.751+06:00  INFO 18172 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-01T19:31:41.824+06:00  INFO 2628 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Starting SocialConnectApplicationTests using Java 23.0.1 with PID 2628 (started by ACER in D:\RealProject\SocialConnect)
+2025-06-01T19:31:41.826+06:00  INFO 2628 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-06-01T19:31:42.874+06:00  INFO 2628 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-01T19:31:42.935+06:00  INFO 2628 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 5 JPA repository interfaces.
+2025-06-01T19:31:43.524+06:00  INFO 2628 --- [SocialConnect] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-01T19:31:43.607+06:00  INFO 2628 --- [SocialConnect] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-01T19:31:43.640+06:00  INFO 2628 --- [SocialConnect] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-01T19:31:44.036+06:00  INFO 2628 --- [SocialConnect] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-01T19:31:44.072+06:00  INFO 2628 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-01T19:31:44.265+06:00  INFO 2628 --- [SocialConnect] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4882b9a
+2025-06-01T19:31:44.268+06:00  INFO 2628 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-01T19:31:44.293+06:00  WARN 2628 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-01T19:31:44.295+06:00  WARN 2628 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-01T19:31:44.317+06:00  INFO 2628 --- [SocialConnect] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-01T19:31:45.645+06:00  INFO 2628 --- [SocialConnect] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-01T19:31:45.764+06:00  INFO 2628 --- [SocialConnect] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:31:46.372+06:00  WARN 2628 --- [SocialConnect] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-01T19:31:46.396+06:00  WARN 2628 --- [SocialConnect] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d1f38584-cf54-4055-8caa-165d5f102991
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-06-01T19:31:46.408+06:00  INFO 2628 --- [SocialConnect] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-06-01T19:31:47.318+06:00  INFO 2628 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Started SocialConnectApplicationTests in 5.873 seconds (process running for 7.016)
+2025-06-01T19:31:48.529+06:00  INFO 2628 --- [SocialConnect] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:31:48.542+06:00  INFO 2628 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-01T19:31:48.577+06:00  INFO 2628 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-01T19:32:09.103+06:00  INFO 9532 --- [SocialConnect] [main] c.e.S.SocialConnectApplication           : Starting SocialConnectApplication using Java 23.0.1 with PID 9532 (D:\RealProject\SocialConnect\target\classes started by ACER in D:\RealProject\SocialConnect)
+2025-06-01T19:32:09.106+06:00  INFO 9532 --- [SocialConnect] [main] c.e.S.SocialConnectApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-06-01T19:32:09.942+06:00  INFO 9532 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-01T19:32:10.015+06:00  INFO 9532 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 5 JPA repository interfaces.
+2025-06-01T19:32:10.556+06:00  INFO 9532 --- [SocialConnect] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-01T19:32:10.574+06:00  INFO 9532 --- [SocialConnect] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-01T19:32:10.575+06:00  INFO 9532 --- [SocialConnect] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-01T19:32:10.647+06:00  INFO 9532 --- [SocialConnect] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-01T19:32:10.648+06:00  INFO 9532 --- [SocialConnect] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1340 ms
+2025-06-01T19:32:10.813+06:00  INFO 9532 --- [SocialConnect] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-01T19:32:10.853+06:00  INFO 9532 --- [SocialConnect] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-01T19:32:10.894+06:00  INFO 9532 --- [SocialConnect] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-01T19:32:11.184+06:00  INFO 9532 --- [SocialConnect] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-01T19:32:11.213+06:00  INFO 9532 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-01T19:32:11.387+06:00  INFO 9532 --- [SocialConnect] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@341ccfd1
+2025-06-01T19:32:11.389+06:00  INFO 9532 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-01T19:32:11.412+06:00  WARN 9532 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-01T19:32:11.414+06:00  WARN 9532 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-01T19:32:11.433+06:00  INFO 9532 --- [SocialConnect] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-01T19:32:12.265+06:00  INFO 9532 --- [SocialConnect] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-01T19:32:12.392+06:00  INFO 9532 --- [SocialConnect] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:32:12.799+06:00  WARN 9532 --- [SocialConnect] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-01T19:32:12.824+06:00  WARN 9532 --- [SocialConnect] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 03cc05df-aa81-4a09-92aa-b1b1e17a4ad8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-06-01T19:32:12.831+06:00  INFO 9532 --- [SocialConnect] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-06-01T19:32:13.352+06:00  INFO 9532 --- [SocialConnect] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-01T19:32:13.359+06:00  INFO 9532 --- [SocialConnect] [main] c.e.S.SocialConnectApplication           : Started SocialConnectApplication in 4.789 seconds (process running for 5.176)
+2025-06-01T19:32:22.375+06:00  INFO 9532 --- [SocialConnect] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-01T19:32:22.375+06:00  INFO 9532 --- [SocialConnect] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-01T19:32:22.377+06:00  INFO 9532 --- [SocialConnect] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-06-01T19:42:02.056+06:00  INFO 9532 --- [SocialConnect] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-01T19:42:02.065+06:00  INFO 9532 --- [SocialConnect] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-01T19:42:02.070+06:00  INFO 9532 --- [SocialConnect] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:42:02.074+06:00  INFO 9532 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-01T19:42:02.083+06:00  INFO 9532 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-01T19:42:13.403+06:00  INFO 18652 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Starting SocialConnectApplicationTests using Java 23.0.1 with PID 18652 (started by ACER in D:\RealProject\SocialConnect)
+2025-06-01T19:42:13.404+06:00  INFO 18652 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-06-01T19:42:14.382+06:00  INFO 18652 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-01T19:42:14.453+06:00  INFO 18652 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 5 JPA repository interfaces.
+2025-06-01T19:42:15.054+06:00  INFO 18652 --- [SocialConnect] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-01T19:42:15.136+06:00  INFO 18652 --- [SocialConnect] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-01T19:42:15.164+06:00  INFO 18652 --- [SocialConnect] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-01T19:42:15.515+06:00  INFO 18652 --- [SocialConnect] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-01T19:42:15.539+06:00  INFO 18652 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-01T19:42:15.704+06:00  INFO 18652 --- [SocialConnect] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44a14de0
+2025-06-01T19:42:15.705+06:00  INFO 18652 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-01T19:42:15.723+06:00  WARN 18652 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-01T19:42:15.724+06:00  WARN 18652 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-01T19:42:15.762+06:00  INFO 18652 --- [SocialConnect] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-01T19:42:16.652+06:00  INFO 18652 --- [SocialConnect] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-01T19:42:16.798+06:00  INFO 18652 --- [SocialConnect] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:42:17.384+06:00  WARN 18652 --- [SocialConnect] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-01T19:42:17.405+06:00  WARN 18652 --- [SocialConnect] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 656c1eb1-ac77-4c48-bd5d-7dae03e09ecf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-06-01T19:42:17.415+06:00  INFO 18652 --- [SocialConnect] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-06-01T19:42:18.229+06:00  INFO 18652 --- [SocialConnect] [main] c.e.S.SocialConnectApplicationTests      : Started SocialConnectApplicationTests in 5.22 seconds (process running for 6.374)
+2025-06-01T19:42:18.869+06:00  INFO 18652 --- [SocialConnect] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:42:18.872+06:00  INFO 18652 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-01T19:42:18.882+06:00  INFO 18652 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-01T19:42:31.121+06:00  INFO 20644 --- [SocialConnect] [main] c.e.S.SocialConnectApplication           : Starting SocialConnectApplication using Java 23.0.1 with PID 20644 (D:\RealProject\SocialConnect\target\classes started by ACER in D:\RealProject\SocialConnect)
+2025-06-01T19:42:31.125+06:00  INFO 20644 --- [SocialConnect] [main] c.e.S.SocialConnectApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-06-01T19:42:32.087+06:00  INFO 20644 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-01T19:42:32.171+06:00  INFO 20644 --- [SocialConnect] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 5 JPA repository interfaces.
+2025-06-01T19:42:32.666+06:00  INFO 20644 --- [SocialConnect] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-06-01T19:42:32.687+06:00  INFO 20644 --- [SocialConnect] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-01T19:42:32.687+06:00  INFO 20644 --- [SocialConnect] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-06-01T19:42:32.769+06:00  INFO 20644 --- [SocialConnect] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-01T19:42:32.771+06:00  INFO 20644 --- [SocialConnect] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1390 ms
+2025-06-01T19:42:32.951+06:00  INFO 20644 --- [SocialConnect] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-01T19:42:32.989+06:00  INFO 20644 --- [SocialConnect] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-06-01T19:42:33.015+06:00  INFO 20644 --- [SocialConnect] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-01T19:42:33.284+06:00  INFO 20644 --- [SocialConnect] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-01T19:42:33.309+06:00  INFO 20644 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-01T19:42:33.456+06:00  INFO 20644 --- [SocialConnect] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@36665c11
+2025-06-01T19:42:33.458+06:00  INFO 20644 --- [SocialConnect] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-01T19:42:33.479+06:00  WARN 20644 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-01T19:42:33.480+06:00  WARN 20644 --- [SocialConnect] [main] org.hibernate.orm.deprecation            : HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2025-06-01T19:42:33.498+06:00  INFO 20644 --- [SocialConnect] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-01T19:42:34.324+06:00  INFO 20644 --- [SocialConnect] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-01T19:42:34.447+06:00  INFO 20644 --- [SocialConnect] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:42:34.845+06:00  WARN 20644 --- [SocialConnect] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-01T19:42:34.865+06:00  WARN 20644 --- [SocialConnect] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ab5c78ae-0cb5-446a-8209-537436e40836
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-06-01T19:42:34.871+06:00  INFO 20644 --- [SocialConnect] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-06-01T19:42:35.389+06:00  INFO 20644 --- [SocialConnect] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-06-01T19:42:35.396+06:00  INFO 20644 --- [SocialConnect] [main] c.e.S.SocialConnectApplication           : Started SocialConnectApplication in 4.764 seconds (process running for 5.101)
+2025-06-01T19:42:48.908+06:00  INFO 20644 --- [SocialConnect] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-01T19:42:48.909+06:00  INFO 20644 --- [SocialConnect] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-01T19:42:48.911+06:00  INFO 20644 --- [SocialConnect] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-06-01T19:43:42.264+06:00  INFO 20644 --- [SocialConnect] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-06-01T19:43:42.287+06:00  INFO 20644 --- [SocialConnect] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-06-01T19:43:42.296+06:00  INFO 20644 --- [SocialConnect] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-01T19:43:42.301+06:00  INFO 20644 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-01T19:43:42.317+06:00  INFO 20644 --- [SocialConnect] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

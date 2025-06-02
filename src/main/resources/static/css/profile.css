@@ -165,12 +165,3 @@
     gap: 10px;
     margin: 10px 0 8px 0;
 }
-.post-img {
-    max-width: 180px;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 9px;
-    box-shadow: 0 1px 6px rgba(22,99,255,0.09);
-    background: #f7fafd;
-    border: 1px solid #f2f2f2;
-}
